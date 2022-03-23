@@ -41,8 +41,33 @@ data <- data.frame(
   abs = abs
 )
 
+unknowns <- c(0.554, 0.568, 0.705)
+
 head(data)
 ```
+
+# The Easy Way
+Using the package `{standard}`, we can fit a stanard curve and use it to predict what the concentrations are for our unkown proteins.
+ 
+```{r}
+library(standard)
+
+our_curve <- std_curve_fit(
+  data = data, 
+  conc = prot, 
+  resp = abs
+  )
+
+std_curve_predict(
+  model = our_curve, 
+  unknowns = unknowns
+  )
+```
+ 
+## What is `{standard}`?
+Standard is an effort to make the use of R for calculating and applying standard curves in molecular biology as painless as possible. 
+
+Under the hood it's just fitting linear models, pulling out relevant statistics and using them to predict values. All of this may seem easy if you are exerienced in R - but the intention of this package is to create a beginner-friendly and _reproducible_ API for doing common molecular biology tasks inside of R.
 
 # Fitting the Model
 ```{r}

@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["measuring-protein-concentration_files/anchor-4.2.2/anchor.min.js","measuring-protein-concentration_files/bowser-1.9.3/bowser.min.js","measuring-protein-concentration_files/distill-2.2.21/template.v2.js","measuring-protein-concentration_files/figure-html5/unnamed-chunk-7-1.png","measuring-protein-concentration_files/header-attrs-2.13/header-attrs.js","measuring-protein-concentration_files/jquery-3.6.0/jquery-3.6.0.js","measuring-protein-concentration_files/jquery-3.6.0/jquery-3.6.0.min.js","measuring-protein-concentration_files/jquery-3.6.0/jquery-3.6.0.min.map","measuring-protein-concentration_files/popper-2.6.0/popper.min.js","measuring-protein-concentration_files/tippy-6.2.7/tippy-bundle.umd.min.js","measuring-protein-concentration_files/tippy-6.2.7/tippy-light-border.css","measuring-protein-concentration_files/tippy-6.2.7/tippy.css","measuring-protein-concentration_files/tippy-6.2.7/tippy.umd.min.js","measuring-protein-concentration_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["measuring-protein-concentration_files/anchor-4.2.2/anchor.min.js","measuring-protein-concentration_files/bowser-1.9.3/bowser.min.js","measuring-protein-concentration_files/distill-2.2.21/template.v2.js","measuring-protein-concentration_files/figure-html5/unnamed-chunk-7-1.png","measuring-protein-concentration_files/figure-html5/unnamed-chunk-8-1.png","measuring-protein-concentration_files/header-attrs-2.13/header-attrs.js","measuring-protein-concentration_files/jquery-3.6.0/jquery-3.6.0.js","measuring-protein-concentration_files/jquery-3.6.0/jquery-3.6.0.min.js","measuring-protein-concentration_files/jquery-3.6.0/jquery-3.6.0.min.map","measuring-protein-concentration_files/popper-2.6.0/popper.min.js","measuring-protein-concentration_files/tippy-6.2.7/tippy-bundle.umd.min.js","measuring-protein-concentration_files/tippy-6.2.7/tippy-light-border.css","measuring-protein-concentration_files/tippy-6.2.7/tippy.css","measuring-protein-concentration_files/tippy-6.2.7/tippy.umd.min.js","measuring-protein-concentration_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1264,12 +1264,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
-          $(this).html(fn.shadowRoot.querySelector("sup"))
-          $(this).id = fn.id
-          fn.remove()
-        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1444,7 +1438,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="measuring-protein-concentration_files/header-attrs-2.13/header-attrs.js"></script>
+  <script src="measuring-protein-concentration_files/header-attrs-2.11/header-attrs.js"></script>
   <script src="measuring-protein-concentration_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="measuring-protein-concentration_files/popper-2.6.0/popper.min.js"></script>
   <link href="measuring-protein-concentration_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1479,11 +1473,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1>Measuring Protein Concentration</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
-<div class="dt-tag">data visualisation</div>
-<div class="dt-tag">ggplot2</div>
-<div class="dt-tag">lm</div>
-<div class="dt-tag">standard curve</div>
-<div class="dt-tag">tutorial</div>
+<div class="dt=tag">data visualisation</div>
+<div class="dt=tag">ggplot2</div>
+<div class="dt=tag">lm</div>
+<div class="dt=tag">standard curve</div>
+<div class="dt=tag">tutorial</div>
 </div>
 <!--/radix_placeholder_categories-->
 <p><p>A short description of the post.</p></p>
@@ -1500,6 +1494,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
+<li><a href="#the-easy-way">The Easy Way</a>
+<ul>
+<li><a href="#what-is-standard">What is <code>{standard}</code>?</a></li>
+</ul></li>
 <li><a href="#fitting-the-model">Fitting the Model</a></li>
 </ul>
 </nav>
@@ -1520,6 +1518,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   abs <span class='op'>=</span> <span class='va'>abs</span>
 <span class='op'>)</span>
 
+<span class='va'>unknowns</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.554</span>, <span class='fl'>0.568</span>, <span class='fl'>0.705</span><span class='op'>)</span>
+
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -1531,6 +1531,34 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 5 0.125 0.417
 6 0.250 0.491</code></pre>
 </div>
+<h1 id="the-easy-way">The Easy Way</h1>
+<p>Using the package <code>{standard}</code>, we can fit a stanard curve and use it to predict what the concentrations are for our unkown proteins.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rforbiochemists/standard'>standard</a></span><span class='op'>)</span>
+
+<span class='va'>our_curve</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/standard/man/std_curve_fit.html'>std_curve_fit</a></span><span class='op'>(</span>
+  data <span class='op'>=</span> <span class='va'>data</span>, 
+  conc <span class='op'>=</span> <span class='va'>prot</span>, 
+  resp <span class='op'>=</span> <span class='va'>abs</span>
+  <span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/pkg/standard/man/std_curve_predict.html'>std_curve_predict</a></span><span class='op'>(</span>
+  model <span class='op'>=</span> <span class='va'>our_curve</span>, 
+  unknowns <span class='op'>=</span> <span class='va'>unknowns</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 3 x 2
+    abs  prot
+  &lt;dbl&gt; &lt;dbl&gt;
+1 0.554 0.361
+2 0.568 0.384
+3 0.705 0.609</code></pre>
+</div>
+<h2 id="what-is-standard">What is <code>{standard}</code>?</h2>
+<p>Standard is an effort to make the use of R for calculating and applying standard curves in molecular biology as painless as possible.</p>
+<p>Under the hood it’s just fitting linear models, pulling out relevant statistics and using them to predict values. All of this may seem easy if you are exerienced in R - but the intention of this package is to create a beginner-friendly and <em>reproducible</em> API for doing common molecular biology tasks inside of R.</p>
 <h1 id="fitting-the-model">Fitting the Model</h1>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1572,7 +1600,7 @@ F-statistic:  1801 on 1 and 14 DF,  p-value: 3.421e-16</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 2 × 5
+<pre><code># A tibble: 2 x 5
   term        estimate std.error statistic  p.value
   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 1 (Intercept)   -0.551    0.0203     -27.1 1.67e-13
@@ -1605,7 +1633,7 @@ F-statistic:  1801 on 1 and 14 DF,  p-value: 3.421e-16</code></pre>
 <span class='va'>unk</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 3 × 2
+<pre><code># A tibble: 3 x 2
     abs .fitted
   &lt;dbl&gt;   &lt;dbl&gt;
 1 0.554   0.361
@@ -1643,9 +1671,9 @@ F-statistic:  1801 on 1 and 14 DF,  p-value: 3.421e-16</code></pre>
   <span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="measuring-protein-concentration_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="measuring-protein-concentration_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
