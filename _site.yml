@@ -3,6 +3,7 @@ title: "R for Biochemists"
 description: |
   R for Biochemists
 output_dir: "docs"
+base_url: https://rforbiochemists.com
 navbar:
   right:
     - text: "Home"
@@ -10,4 +11,18 @@ navbar:
     - text: "About"
       href: about.html
   source_url: https://github.com/rforbiochemists/rforbiochemists.github.io
-output: distill::distill_article
+collections:
+  posts:
+    categories: true
+    categories_metadata: true
+    authors_metadata: false
+    citations: false
+    share: [twitter]
+output:
+  distill::distill_article:
+    highlight: tango
+    highlight_downlit: true
+    css: styles.css
+    toc: true
+    fig_caption: true
+google_analytics: "G-KJ3J5GMLF7"

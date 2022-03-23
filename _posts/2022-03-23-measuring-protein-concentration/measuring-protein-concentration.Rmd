@@ -1,0 +1,117 @@
+---
+title: "Measuring Protein Concentration"
+description: |
+  A short description of the post.
+categories:
+  - data visualisation
+  - ggplot2
+  - lm
+  - standard curve
+  - tutorial
+author:
+  - name: Brady Johnston
+    url: https://twitter.com/bradyajohnston
+date: 2022-03-23
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    css: "styles.css"
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+How do we go about measuring protein concentration?
+
+```{r}
+# Protein Concentrations
+prot <- c(0.000, 0.016, 0.031, 0.063, 0.125, 0.250, 0.500, 1.000, 
+          0.000, 0.016, 0.031, 0.063, 0.125, 0.250, 0.500, 1.000) 
+
+# Absorbance from my protein assay
+abs <- c(0.329, 0.352, 0.349, 0.379, 0.417, 0.491, 0.668, 0.956, 
+         0.327, 0.341, 0.355, 0.383, 0.417, 0.446, 0.655, 0.905)
+
+data <- data.frame(
+  prot = prot, 
+  abs = abs
+)
+
+head(data)
+```
+
+# Fitting the Model
+```{r}
+mod <- lm(prot ~ abs, data = data)
+summary(mod)
+```
+
+What about just the coefficients we are interested in?
+
+```{r}
+coefficients(mod)
+```
+
+Which we can get in a bit nice format with the `{broom}` package.
+
+```{r}
+broom::tidy(mod)
+```
+
+The $R^{2}$ can be extracted from the model using `summary()`.
+
+```{r}
+r_squared <- summary(mod)$r.squared
+print(r_squared)
+```
+
+With some unknowns, we can predict what the values will be. We must make sure that the column in this unkown data frame has the appropriate name, `abs` in this case which is the same as what we used in our original model.
+
+We can use the base function `predict()` to get the predictions, or use the `broom::augment()` to get an already nicely formatted response.
+
+```{r}
+unk <- data.frame(
+  abs = c(0.554, 0.568, 0.705)
+)
+
+predict(mod, unk)
+unk <- broom::augment(mod, newdata = unk)
+unk
+```
+
+To plot the results:
+
+```{r}
+library(ggplot2)
+library(magrittr)
+broom::augment(mod) %>% 
+  ggplot(aes(prot, abs)) + 
+  geom_smooth(method = "lm", colour = "gray20", linetype = "dotted") + 
+  geom_point(aes(y = abs), colour = "tomato", size = 4) + 
+  geom_point(
+    data = unk, 
+    aes(x = .fitted, y = abs), 
+    colour = "black", 
+    alpha = 1,
+    size = 6, 
+    shape = 4
+  ) + 
+  theme_classic() + 
+  theme(aspect.ratio = 0.5) + 
+  labs(
+    x = "[Protein] mg/mL", 
+    y = "Absorbance (AU)"
+  ) + 
+  annotate(
+    geom = "text", 
+    x = 0.1, 
+    y = 0.9, 
+    label = paste("Rsq =", round(r_squared, 2))
+  )
+
+```
+

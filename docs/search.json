@@ -5,15 +5,15 @@
       "title": "What is R for Biochemists?",
       "description": "Why are we doing this?",
       "author": [],
-      "contents": "\nWhat are we doing here?\nThe idea behind R for biochemists is to enable traditionally wet-lab scientists, who may have previously stayed away from programming, to be able to conduct automated and most importantly reproducible analysis of their data.\nWhile there are many great resources available to learn R, a lot of them focus on data and approaches that aren’t relevant a biochemist who just wants to automate the analysis of their Bradford assay, or fit a binding curve for their REMSA and calculate a \\(K_{d}\\).\nThis website will act as a home for a series of blog posts on how to analyse experimental data in R, with a focus on beginner-friendly explanations and code, to make doing reproducible and automated analysis in R as accessible as possible.\n\n\n\n",
-      "last_modified": "2022-03-23T12:31:58+08:00"
+      "contents": "\n\nContents\nWhat are we doing here?\n\nWhat are we doing here?\nThe idea behind R for biochemists is to enable traditionally wet-lab scientists, who may have previously stayed away from programming, to be able to conduct automated and most importantly reproducible analysis of their data.\nWhile there are many great resources available to learn R, a lot of them focus on data and approaches that aren’t relevant a biochemist who just wants to automate the analysis of their Bradford assay, or fit a binding curve for their REMSA and calculate a \\(K_{d}\\).\nThis website will act as a home for a series of blog posts on how to analyse experimental data in R, with a focus on beginner-friendly explanations and code, to make doing reproducible and automated analysis in R as accessible as possible.\n\n\n\n",
+      "last_modified": "2022-03-23T14:37:35+08:00"
     },
     {
       "path": "index.html",
       "title": "R for Biochemists",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-03-23T12:31:59+08:00"
+      "last_modified": "2022-03-23T14:37:36+08:00"
     }
   ],
   "collections": ["posts/posts.json"]

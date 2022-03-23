@@ -50,674 +50,76 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  background-color: #f8f8f8; }
+  {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>R for Biochemists: What is R for Biochemists?</title>
+  <title>Measuring Protein Concentration</title>
 
-  <meta property="description" itemprop="description" content="Why are we doing this?"/>
+  <meta property="description" itemprop="description" content="A short description of the post."/>
 
 
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2022-03-23"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-03-23"/>
+  <meta name="article:author" content="Brady Johnston"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="R for Biochemists: What is R for Biochemists?"/>
+  <meta property="og:title" content="Measuring Protein Concentration"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Why are we doing this?"/>
+  <meta property="og:description" content="A short description of the post."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="R for Biochemists"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="R for Biochemists: What is R for Biochemists?"/>
-  <meta property="twitter:description" content="Why are we doing this?"/>
+  <meta property="twitter:title" content="Measuring Protein Concentration"/>
+  <meta property="twitter:description" content="A short description of the post."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["What is R for Biochemists?"]},{"type":"character","attributes":{},"value":["Why are we doing this?"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","categories","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["Measuring Protein Concentration"]},{"type":"character","attributes":{},"value":["A short description of the post.\n"]},{"type":"character","attributes":{},"value":["data visualisation","ggplot2","lm","standard curve","tutorial"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Brady Johnston"]},{"type":"character","attributes":{},"value":["https://twitter.com/bradyajohnston"]}]}]},{"type":"character","attributes":{},"value":["2022-03-23"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","css"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["styles.css"]}]}]},{"type":"logical","attributes":{},"value":[true]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["measuring-protein-concentration_files/anchor-4.2.2/anchor.min.js","measuring-protein-concentration_files/bowser-1.9.3/bowser.min.js","measuring-protein-concentration_files/distill-2.2.21/template.v2.js","measuring-protein-concentration_files/figure-html5/unnamed-chunk-7-1.png","measuring-protein-concentration_files/header-attrs-2.13/header-attrs.js","measuring-protein-concentration_files/jquery-3.6.0/jquery-3.6.0.js","measuring-protein-concentration_files/jquery-3.6.0/jquery-3.6.0.min.js","measuring-protein-concentration_files/jquery-3.6.0/jquery-3.6.0.min.map","measuring-protein-concentration_files/popper-2.6.0/popper.min.js","measuring-protein-concentration_files/tippy-6.2.7/tippy-bundle.umd.min.js","measuring-protein-concentration_files/tippy-6.2.7/tippy-light-border.css","measuring-protein-concentration_files/tippy-6.2.7/tippy.css","measuring-protein-concentration_files/tippy-6.2.7/tippy.umd.min.js","measuring-protein-concentration_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
   <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-
-  <script type="application/javascript">
-
-    window.headroom_prevent_pin = false;
-
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
-  </script>
-
-  <style type="text/css">
-
-  /* Theme (user-documented overrideables for nav appearance) */
-
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .distill-site-nav a:hover {
-    color: white;
-  }
-
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-
-  .distill-site-header {
-
-  }
-
-  .distill-site-footer {
-
-  }
-
-
-  /* Site Header */
-
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-
-
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-
-  .distill-site-header .logo {
-    padding: 0;
-  }
-
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-
-
-
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-
-
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-dropdown-active {
-    display: block;
-  }
-
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-
-  /* Site Footer */
-
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  /* Headroom */
-
-  d-title {
-    padding-top: 6rem;
-  }
-
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-
-  .headroom--unpinned {
-    top: -100px;
-  }
-
-  .headroom--pinned {
-    top: 0;
-  }
-
-  /* adjust viewport for navbar height */
-  /* helps vertically center bootstrap (non-distill) content */
-  .min-vh-100 {
-    min-height: calc(100vh - 100px) !important;
-  }
-
-  </style>
-
-  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
-  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
-  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
-
-  <script type="application/javascript">
-
-  function getMeta(metaName) {
-    var metas = document.getElementsByTagName('meta');
-    for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === metaName) {
-        return metas[i].getAttribute('content');
-      }
-    }
-    return '';
-  }
-
-  function offsetURL(url) {
-    var offset = getMeta('distill:offset');
-    return offset ? offset + '/' + url : url;
-  }
-
-  function createFuseIndex() {
-
-    // create fuse index
-    var options = {
-      keys: [
-        { name: 'title', weight: 20 },
-        { name: 'categories', weight: 15 },
-        { name: 'description', weight: 10 },
-        { name: 'contents', weight: 5 },
-      ],
-      ignoreLocation: true,
-      threshold: 0
-    };
-    var fuse = new window.Fuse([], options);
-
-    // fetch the main search.json
-    return fetch(offsetURL('search.json'))
-      .then(function(response) {
-        if (response.status == 200) {
-          return response.json().then(function(json) {
-            // index main articles
-            json.articles.forEach(function(article) {
-              fuse.add(article);
-            });
-            // download collections and index their articles
-            return Promise.all(json.collections.map(function(collection) {
-              return fetch(offsetURL(collection)).then(function(response) {
-                if (response.status === 200) {
-                  return response.json().then(function(articles) {
-                    articles.forEach(function(article) {
-                      fuse.add(article);
-                    });
-                  })
-                } else {
-                  return Promise.reject(
-                    new Error('Unexpected status from search index request: ' +
-                              response.status)
-                  );
-                }
-              });
-            })).then(function() {
-              return fuse;
-            });
-          });
-
-        } else {
-          return Promise.reject(
-            new Error('Unexpected status from search index request: ' +
-                        response.status)
-          );
-        }
-      });
-  }
-
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-
-    // get search element (bail if we don't have one)
-    var searchEl = window.document.getElementById('distill-search');
-    if (!searchEl)
-      return;
-
-    createFuseIndex()
-      .then(function(fuse) {
-
-        // make search box visible
-        searchEl.classList.remove('hidden');
-
-        // initialize autocomplete
-        var options = {
-          autoselect: true,
-          hint: false,
-          minLength: 2,
-        };
-        window.autocomplete(searchEl, options, [{
-          source: function(query, callback) {
-            const searchOptions = {
-              isCaseSensitive: false,
-              shouldSort: true,
-              minMatchCharLength: 2,
-              limit: 10,
-            };
-            var results = fuse.search(query, searchOptions);
-            callback(results
-              .map(function(result) { return result.item; })
-            );
-          },
-          templates: {
-            suggestion: function(suggestion) {
-              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
-                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
-                : '';
-              var html = `
-                <div class="search-item">
-                  <h3>${suggestion.title}</h3>
-                  <div class="search-item-description">
-                    ${suggestion.description || ''}
-                  </div>
-                  <div class="search-item-preview">
-                    ${img}
-                  </div>
-                </div>
-              `;
-              return html;
-            }
-          }
-        }]).on('autocomplete:selected', function(event, suggestion) {
-          window.location.href = offsetURL(suggestion.path);
-        });
-        // remove inline display style on autocompleter (we want to
-        // manage responsive display via css)
-        $('.algolia-autocomplete').css("display", "");
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-
-  });
-
-  </script>
-
-  <style type="text/css">
-
-  .nav-search {
-    font-size: x-small;
-  }
-
-  /* Algolioa Autocomplete */
-
-  .algolia-autocomplete {
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: sub;
-    background-color: white;
-    color: black;
-    padding: 6px;
-    padding-top: 8px;
-    padding-bottom: 0;
-    border-radius: 6px;
-    border: 1px #0F2E3D solid;
-    width: 180px;
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-nav .algolia-autocomplete {
-      display: none;
-      visibility: hidden;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete {
-      display: inline-block;
-      visibility: visible;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
-      margin-left: 0;
-      width: 400px;
-      max-height: 400px;
-    }
-  }
-
-  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-    width: 90%;
-    outline: none;
-    border: none;
-  }
-
-  .algolia-autocomplete .aa-hint {
-    color: #999;
-  }
-  .algolia-autocomplete .aa-dropdown-menu {
-    width: 550px;
-    max-height: 70vh;
-    overflow-x: visible;
-    overflow-y: scroll;
-    padding: 5px;
-    margin-top: 3px;
-    margin-left: -150px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #999;
-    border-top: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-    cursor: pointer;
-    padding: 5px 4px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
-    border-bottom: none;
-    margin-bottom: 2px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
-    overflow: hidden;
-    font-size: 0.8em;
-    line-height: 1.4em;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-    font-size: 1rem;
-    margin-block-start: 0;
-    margin-block-end: 5px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
-    display: inline-block;
-    overflow: hidden;
-    height: 2.8em;
-    width: 80%;
-    margin-right: 4%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
-    display: inline-block;
-    width: 15%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
-    height: 3em;
-    width: auto;
-    display: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
-    display: initial;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-    background-color: #eee;
-  }
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  </style>
-
-
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -2042,465 +1444,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
-  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="measuring-protein-concentration_files/header-attrs-2.13/header-attrs.js"></script>
+  <script src="measuring-protein-concentration_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="measuring-protein-concentration_files/popper-2.6.0/popper.min.js"></script>
+  <link href="measuring-protein-concentration_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="measuring-protein-concentration_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="measuring-protein-concentration_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="measuring-protein-concentration_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="measuring-protein-concentration_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="measuring-protein-concentration_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="measuring-protein-concentration_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
-  <script type="text/javascript" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=G-KJ3J5GMLF7"></script>
-  <script type="text/javascript" cookie-consent="tracking">
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-KJ3J5GMLF7');
-  </script>
-  <style type="text/css">
-  /* ---------- Global Styles ---------- */
-
-  @import url('https://fonts.googleapis.com/css?family=Atkinson+Hyperlegible&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Fira+Mono&display=swap');
-
-  html, body, p {
-    
-    font-family: 'Atkinson Hyperlegible';
-    font-weight: 400;
-    line-height: 1.7; 
-    font-size: 1em;
-    color: #333333;
-    font-style: normal;
-    
-  }
-
-  h2, h3 {
-    font-family: 'Roboto Slab'
-  }
-
-  d-article h4 {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 0.5em;
-    padding: 5px 0px;
-    outline: 1px solid black;
-  }
-
-  d-article h5 {
-    font-size: 18px;
-    text-decoration: underline;
-    margin-bottom: 0.5em;
-  }
-
-  em {
-    margin-right: 3px;
-  }
-
-  div.opener {
-    text-align: justify;
-  }
-
-  /* Small caps */
-
-  .sc {
-    font-variant: small-caps;
-    letter-spacing: 0.1em;
-  }
-
-
-  /* ---------- Index Page Styles ---------- */
-
-
-  /* Name time */
-
-  div.nav-left.title {
-    font-family: 'Roboto Slab';
-  }
-
-
-  /* Search bar */
-
-  .angolia-autocomplete {
-    width: 300px;
-  }
-
-  .nav-search {
-      font-size: inherit;
-  }
-
-  /* Publication Date */
-
-  .publishedDate {
-    font-size: 1.1em;
-  }
-
-
-  /* Post Description */
-
-  .posts-list .description h2 {
-    font-family: 'Roboto Slab';
-  }
-
-  .description p {
-    font-style: italic;
-    padding-top: 5px;
-  }
-
-
-  /* Tags */
-
-  .posts-list .dt-tags {
-    margin-top: 10px;
-    margin-right: 10px;
-  }
-
-
-  .posts-list .dt-tags .dt-tag {
-    font-family: 'Roboto Slab';
-    font-weight: bold;
-    letter-spacing: 1px;
-    background-color: #565656;
-    color: white;
-  }
-
-  /* Top & Bot bars */
-
-  .distill-site-nav {
-    background-color: #262c2f;
-  }
-
-  .distill-site-footer p {
-    color: white;
-  }
-
-
-
-  /* Post published date medatada */
-  .posts-list .metadata .publishedDate{
-    font-family: 'Roboto Mono';
-  }
-
-
-  /* Post list caption */
-  .posts-list .posts-list-caption{
-    font-family: 'Fira Mono';
-    border-bottom: 5px solid #f3f3f3;
-    padding-bottom: 2rem;
-  }
-
-
-  /* Sidebar Categories */
-  .posts-sidebar {
-    font-family: 'Fira Mono';
-  }
-
-  .sidebar-section h3 {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-
-
-  /* ---------- Article Styles ---------- */
-
-
-  /* Title */
-
-  d-title {
-    padding-bottom: 0;
-  }
-
-  d-title h1 {
-    font-family: 'Roboto Slab';
-    line-height: 1.3;
-  }
-
-  d-title p {
-    font-weight: 600;
-  }
-
-
-  /* General */
-
-  d-article > h2 {
-    margin: 3rem 0 1.5rem 0;
-    border-bottom: 2px solid black;
-  }
-
-  div.l-body + h2 {
-    margin-top: 0px;
-  }
-
-  d-article > h3 {
-    margin-top: 1em;
-    font-size: 28px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid lightgrey;
-  }
-
-  d-article ol {
-    padding-bottom: 15px;
-  }
-
-  /* Aside */
-
-  aside {
-    margin-left: 20px;
-    width: 200px;
-    font-family: 'Roboto Slab';
-  }
-
-  div.sourceCode + aside {
-    margin-top: 1.5em;
-  }
-
-  aside code {
-    font-weight: 600;
-  }
-
-  /* Details */
-  summary {
-    padding-left: 5px;
-  }
-
-  details {
-    background-color: #008bff0f;
-    outline: 2px solid #38566F;
-    padding: 1rem;
-  }
-
-  /* Block Quotes */
-
-  d-article blockquote {
-    border-left: 5px solid rgba(0, 0, 0, 0.2);
-    padding-left: 1em;
-  }
-
-  blockquote p {
-    margin-bottom: 0;
-  }
-
-
-  /* Footnote margins */
-  d-footnote {
-    margin-left: -.2em;
-    margin-right: .1em;
-  }
-
-  /* Footnote Image */
-
-  d-footnote-list ol li img {
-    width: 700px;
-  }
-
-  d-footnote img {
-    width: 660px;
-    padding: 10px;
-  }
-
-
-  /* -------- Layout Helpers -------- */
-
-  /* 2-column Even */
-
-  .pull-left {
-    float: left;
-    width: 47%;
-  }
-
-  .pull-right {
-    float: right;
-    width: 47%;
-  }
-
-  /* 2-column Left-skew */
-
-  .pull-left-wide {
-    float: left;
-    width: 75%;
-  }
-
-  .pull-right-narrow {
-    float: right;
-    width: 20%;
-  }
-
-  /* 2-column Right-skew */
-
-  .pull-left-narrow {
-    float: left;
-    width: 20%;
-  }
-
-  .pull-right-wide {
-    float: right;
-    width: 75%;
-  }
-
-
-  /* ---------- Code Styles ---------- */
-
-  /* Inline Code */
-
-  p > code, li > code, summary > code {
-    border-radius: 4px;
-    padding: 2px;
-    color: black;
-    background-color: #fbc4ff80;
-    font-family: 'Fira Mono';
-    font-weight: 600;
-    font-size: 0.8em;
-  }
-
-  a > code {
-      font-weight: bold;
-  }
-
-
-  /* Code Chunk */
-
-  d-article div.sourceCode pre {
-    position: relative;
-    background-color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    border-left: 5px solid #4D8DC9;
-  }
-
-  /* R chunk */
-  d-article div.sourceCode pre.r {
-    background-color: #faffff;
-  }
-
-  d-article details div.sourceCode pre.r {
-      background-color: white;
-  }
-
-  /*
-  d-article div.sourceCode pre.r:before {
-    position: absolute;
-    font-size: 1rem;
-    content: 'R';
-    font-family: 'Fira Mono';
-    font-weight: 600;
-    left: -20px;
-    top: -5px;
-    color: #59a2e6;
-  }
-  */
-
-  d-article div.sourceCode pre code {
-    font-family: 'Fira Mono';
-    font-weight: 600;
-  }
-
-
-  /* overrides some syntax highlighting */
-
-  span.va {
-    color: black;
-  }
-  span.fu {
-    color: #3456cc;
-  }
-  span.cn {
-    color: #ef3e3a;
-  }
-  span.fl {
-    color: #c8531d;
-  }
-  span.kw {
-    color: #9f1eb1;
-  }
-  span.st {
-    color: #148a14;
-  }
-  span.co {
-    color: #999999;
-    font-weight: 500;
-  }
-
-  /* underline auto-linked functions */
-
-  span.va a {
-    text-decoration: underline;
-  }
-  span.fu a {
-    text-decoration: underline;
-  }
-
-
-  /* Output Chunk */
-
-  d-article pre code {
-    font-family: 'Fira Mono';
-    font-weight: 500;
-  }
-
-  d-article pre {
-    background-color: #f9f9f9;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-    overflow-x: scroll;
-  }
-
-
-  /* Footnote inline code */
-
-  d-footnote-list code {
-    color: rgb(0 0 0 / 0.70);
-    font-weight: 600;
-  }
-
-  /* ---------- ADD-ONS ---------- */
-
-
-  /* {rmarkdown} */
-
-  .pagedtable-wrapper {
-    margin-bottom: 20px;
-  }
-
-
-  /* html widgets */
-
-  .html-widget {
-    margin-top: 1.0em;
-    margin-bottom: 1.0em;
-  }
-
-
-  /* {reactable} */
-
-  .ReactTable {
-    font-size: 14px;
-    font-family: 'Roboto Slab';
-    background-color: #fbfbfb;
-  }
-
-
-  /* {xaringanExtra} */
-
-  .panelset {
-    margin-top: 10px;
-    --panel-tabs-border-bottom: black;
-    --panel-tab-font-family: 'Roboto Slab';
-    --panel-tab-hover-background: #ddd;
-    --panel-tab-text-decoration: none;
-    border-bottom: 2px solid black;
-    margin-bottom: 30px;
-  }
-
-  .panelset section {
-      margin-top: 30px;
-      margin-bottom: 20px;
-  }
-  </style>
   <!--/radix_placeholder_site_in_header-->
 
   <link rel="stylesheet" href="styles.css" type="text/css"/>
@@ -2512,53 +1466,186 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"What is R for Biochemists?","description":"Why are we doing this?","authors":[]}
+{"title":"Measuring Protein Concentration","description":"A short description of the post.","authors":[{"author":"Brady Johnston","authorURL":"https://twitter.com/bradyajohnston","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-03-23T00:00:00.000+08:00","citationText":"Johnston, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">R for Biochemists</a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="https://github.com/rforbiochemists/rforbiochemists.github.io" aria-label="Link to source">
-<i class="fab fa-github" aria-hidden="true"></i>
-</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>What is R for Biochemists?</h1>
+<h1>Measuring Protein Concentration</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt-tag">data visualisation</div>
+<div class="dt-tag">ggplot2</div>
+<div class="dt-tag">lm</div>
+<div class="dt-tag">standard curve</div>
+<div class="dt-tag">tutorial</div>
+</div>
 <!--/radix_placeholder_categories-->
-<p><p>Why are we doing this?</p></p>
+<p><p>A short description of the post.</p></p>
 </div>
 
+<div class="d-byline">
+  Brady Johnston <a href="https://twitter.com/bradyajohnston" class="uri">https://twitter.com/bradyajohnston</a> 
+  
+<br/>2022-03-23
+</div>
 
 <div class="d-article">
 <div class="d-contents d-contents-float">
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#what-are-we-doing-here">What are we doing here?</a></li>
+<li><a href="#fitting-the-model">Fitting the Model</a></li>
 </ul>
 </nav>
 </div>
-<h1 id="what-are-we-doing-here">What are we doing here?</h1>
-<p>The idea behind R for biochemists is to enable traditionally wet-lab scientists, who may have previously stayed away from programming, to be able to conduct automated and most importantly <em>reproducible</em> analysis of their data.</p>
-<p>While there are many great resources available to learn R, a lot of them focus on data and approaches that aren’t relevant a biochemist who just wants to automate the analysis of their Bradford assay, or fit a binding curve for their REMSA and calculate a <span class="math inline">\(K_{d}\)</span>.</p>
-<p>This website will act as a home for a series of blog posts on how to analyse experimental data in R, with a focus on beginner-friendly explanations and code, to make doing <em>reproducible</em> and <em>automated</em> analysis in R as accessible as possible.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>How do we go about measuring protein concentration?</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Protein Concentrations</span>
+<span class='va'>prot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.000</span>, <span class='fl'>0.016</span>, <span class='fl'>0.031</span>, <span class='fl'>0.063</span>, <span class='fl'>0.125</span>, <span class='fl'>0.250</span>, <span class='fl'>0.500</span>, <span class='fl'>1.000</span>, 
+          <span class='fl'>0.000</span>, <span class='fl'>0.016</span>, <span class='fl'>0.031</span>, <span class='fl'>0.063</span>, <span class='fl'>0.125</span>, <span class='fl'>0.250</span>, <span class='fl'>0.500</span>, <span class='fl'>1.000</span><span class='op'>)</span> 
+
+<span class='co'># Absorbance from my protein assay</span>
+<span class='va'>abs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.329</span>, <span class='fl'>0.352</span>, <span class='fl'>0.349</span>, <span class='fl'>0.379</span>, <span class='fl'>0.417</span>, <span class='fl'>0.491</span>, <span class='fl'>0.668</span>, <span class='fl'>0.956</span>, 
+         <span class='fl'>0.327</span>, <span class='fl'>0.341</span>, <span class='fl'>0.355</span>, <span class='fl'>0.383</span>, <span class='fl'>0.417</span>, <span class='fl'>0.446</span>, <span class='fl'>0.655</span>, <span class='fl'>0.905</span><span class='op'>)</span>
+
+<span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  prot <span class='op'>=</span> <span class='va'>prot</span>, 
+  abs <span class='op'>=</span> <span class='va'>abs</span>
+<span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>   prot   abs
+1 0.000 0.329
+2 0.016 0.352
+3 0.031 0.349
+4 0.063 0.379
+5 0.125 0.417
+6 0.250 0.491</code></pre>
+</div>
+<h1 id="fitting-the-model">Fitting the Model</h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>prot</span> <span class='op'>~</span> <span class='va'>abs</span>, data <span class='op'>=</span> <span class='va'>data</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = prot ~ abs, data = data)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.048237 -0.013238 -0.008318  0.008180  0.067081 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -0.55101    0.02031  -27.13 1.67e-13 ***
+abs          1.64558    0.03878   42.43 3.42e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.03044 on 14 degrees of freedom
+Multiple R-squared:  0.9923,    Adjusted R-squared:  0.9917 
+F-statistic:  1801 on 1 and 14 DF,  p-value: 3.421e-16</code></pre>
+</div>
+<p>What about just the coefficients we are interested in?</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coefficients</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>(Intercept)         abs 
+ -0.5510076   1.6455755 </code></pre>
+</div>
+<p>Which we can get in a bit nice format with the <code>{broom}</code> package.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 2 × 5
+  term        estimate std.error statistic  p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)   -0.551    0.0203     -27.1 1.67e-13
+2 abs            1.65     0.0388      42.4 3.42e-16</code></pre>
+</div>
+<p>The <span class="math inline">\(R^{2}\)</span> can be extracted from the model using <code>summary()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>r_squared</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span><span class='op'>$</span><span class='va'>r.squared</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>r_squared</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.9922846</code></pre>
+</div>
+<p>With some unknowns, we can predict what the values will be. We must make sure that the column in this unkown data frame has the appropriate name, <code>abs</code> in this case which is the same as what we used in our original model.</p>
+<p>We can use the base function <code>predict()</code> to get the predictions, or use the <code>broom::augment()</code> to get an already nicely formatted response.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>unk</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  abs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.554</span>, <span class='fl'>0.568</span>, <span class='fl'>0.705</span><span class='op'>)</span>
+<span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>mod</span>, <span class='va'>unk</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>        1         2         3 
+0.3606412 0.3836793 0.6091231 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>unk</span> <span class='op'>&lt;-</span> <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/augment.html'>augment</a></span><span class='op'>(</span><span class='va'>mod</span>, newdata <span class='op'>=</span> <span class='va'>unk</span><span class='op'>)</span>
+<span class='va'>unk</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 3 × 2
+    abs .fitted
+  &lt;dbl&gt;   &lt;dbl&gt;
+1 0.554   0.361
+2 0.568   0.384
+3 0.705   0.609</code></pre>
+</div>
+<p>To plot the results:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://magrittr.tidyverse.org'>magrittr</a></span><span class='op'>)</span>
+<span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/augment.html'>augment</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>prot</span>, <span class='va'>abs</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, colour <span class='op'>=</span> <span class='st'>"gray20"</span>, linetype <span class='op'>=</span> <span class='st'>"dotted"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>abs</span><span class='op'>)</span>, colour <span class='op'>=</span> <span class='st'>"tomato"</span>, size <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>
+    data <span class='op'>=</span> <span class='va'>unk</span>, 
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>.fitted</span>, y <span class='op'>=</span> <span class='va'>abs</span><span class='op'>)</span>, 
+    colour <span class='op'>=</span> <span class='st'>"black"</span>, 
+    alpha <span class='op'>=</span> <span class='fl'>1</span>,
+    size <span class='op'>=</span> <span class='fl'>6</span>, 
+    shape <span class='op'>=</span> <span class='fl'>4</span>
+  <span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>aspect.ratio <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>
+    x <span class='op'>=</span> <span class='st'>"[Protein] mg/mL"</span>, 
+    y <span class='op'>=</span> <span class='st'>"Absorbance (AU)"</span>
+  <span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span>
+    geom <span class='op'>=</span> <span class='st'>"text"</span>, 
+    x <span class='op'>=</span> <span class='fl'>0.1</span>, 
+    y <span class='op'>=</span> <span class='fl'>0.9</span>, 
+    label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Rsq ="</span>, <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>r_squared</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="measuring-protein-concentration_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
