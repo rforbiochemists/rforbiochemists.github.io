@@ -2,22 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://rforbiochemists.com/about.html</loc>
-    <lastmod>2022-03-23T12:03:05+08:00</lastmod>
+    <lastmod>2022-03-23T16:17:09+08:00</lastmod>
   </url>
   <url>
     <loc>https://rforbiochemists.com/</loc>
-    <lastmod>2022-03-23T12:00:06+08:00</lastmod>
-  </url>
-  <url>
-    <loc>https://rforbiochemists.com/posts/2022-03-23-measuring-protein-concentration/</loc>
-    <lastmod>2022-03-23T14:35:38+08:00</lastmod>
+    <lastmod>2022-03-23T16:17:09+08:00</lastmod>
   </url>
   <url>
     <loc>https://rforbiochemists.com/posts/2022-03-23-sample-post/</loc>
-    <lastmod>2022-03-23T12:31:35+08:00</lastmod>
+    <lastmod>2022-03-23T16:17:09+08:00</lastmod>
   </url>
   <url>
     <loc>https://rforbiochemists.com/posts/welcome/</loc>
-    <lastmod>2022-03-23T12:31:52+08:00</lastmod>
+    <lastmod>2022-03-23T16:17:09+08:00</lastmod>
   </url>
 </urlset>
