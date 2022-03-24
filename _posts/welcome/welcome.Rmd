@@ -19,6 +19,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Some text that goes here!
 
-```{r}
-r3dmol::m_glimpse("1bna")
+```{r, echo = TRUE}
+library(r3dmol)
+m_glimpse("1bna") %>%
+  m_set_style(m_style_ballnstick()) %>% 
+  m_spin(speed = 0.2)
 ```

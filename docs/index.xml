@@ -9,20 +9,6 @@
     <generator>Distill</generator>
     <lastBuildDate>Wed, 23 Mar 2022 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Measuring Protein Concentration</title>
-      <dc:creator>Brady Johnston</dc:creator>
-      <link>https://rforbiochemists.com/posts/2022-03-23-measuring-protein-concentration</link>
-      <description>A short description of the post.</description>
-      <category>data visualisation</category>
-      <category>ggplot2</category>
-      <category>lm</category>
-      <category>standard curve</category>
-      <category>tutorial</category>
-      <guid>https://rforbiochemists.com/posts/2022-03-23-measuring-protein-concentration</guid>
-      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
-      <media:content url="https://rforbiochemists.com/posts/2022-03-23-measuring-protein-concentration/measuring-protein-concentration_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
       <title>Sample Post</title>
       <dc:creator>Nora Jones</dc:creator>
       <link>https://rforbiochemists.com/posts/2022-03-23-sample-post</link>
@@ -38,6 +24,20 @@
       <description>Come and learn about R, for use in biochemistry!</description>
       <guid>https://rforbiochemists.com/posts/welcome</guid>
       <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Measuring Protein Concentration</title>
+      <dc:creator>Brady Johnston</dc:creator>
+      <link>https://rforbiochemists.com/posts/2022-03-23-measuring-protein-concentration</link>
+      <description>A short description of the post.</description>
+      <category>data visualisation</category>
+      <category>ggplot2</category>
+      <category>lm</category>
+      <category>standard curve</category>
+      <category>tutorial</category>
+      <guid>https://rforbiochemists.com/posts/2022-03-23-measuring-protein-concentration</guid>
+      <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://rforbiochemists.com/posts/2022-03-23-measuring-protein-concentration/measuring-protein-concentration_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
   </channel>
 </rss>

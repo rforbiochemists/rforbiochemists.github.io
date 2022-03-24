@@ -17,7 +17,6 @@ output:
     self_contained: false
     toc: true
     css: "styles.css"
-draft: true
 ---
 
 
@@ -48,8 +47,11 @@ head(data)
 
 # The Easy Way
 Using the package `{standard}`, we can fit a stanard curve and use it to predict what the concentrations are for our unkown proteins.
+
+## Fitting a Standard Curve
  
 ```{r}
+#remotes::install_github("rforbiochemists/standard")
 library(standard)
 
 our_curve <- std_curve_fit(
@@ -57,11 +59,31 @@ our_curve <- std_curve_fit(
   conc = prot, 
   resp = abs
   )
+plot(our_curve)
+```
 
+The $R^{2}$ is good and we can confidently use this standard curve to predict what our unknown protein concentrations are. 
+
+## Calculating our Unknowns
+
+For this we can use the `std_curve_predict()` function, which takes a model output from `std_curve_fit()` and a vector of unknowns and returns the predicted values.
+
+```{r}
 std_curve_predict(
   model = our_curve, 
   unknowns = unknowns
   )
+```
+
+
+We can similarly just use `plot()` to quickly generate an informative plot with our standard curve and predicted values all plotted.
+
+```{r}
+std_curve_predict(
+  model = our_curve, 
+  unknowns = unknowns
+  ) %>% 
+  plot()
 ```
  
 ## What is `{standard}`?
