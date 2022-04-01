@@ -1,0 +1,134 @@
+---
+title: "Example Julia Document"
+subtitle: "How do I make a standard curve in R?"
+tags: [data vis, julia, standard curve, tutorial]
+date: today
+author: Brady Johnston
+editor: visual
+toc: true
+code-fold: show
+code-link: true
+code-line-numbers: true  
+  
+---
+
+# Below will be some `Julia` code.
+
+```{julia}
+using Plots
+Plots.plot(1:10, randn(10))
+```
+
+Now that's ssome julia code!
+
+```{julia, code-fold="show"}
+
+for i in 1:10
+    println(i)
+end
+```
+
+And some more text down here.
+
+```{julia}
+using Plots
+default(legend = false)
+x = y = range(-5, 5, length = 40)
+zs = zeros(0, 40)
+n = 100
+
+@gif for i in range(0, stop = 2π, length = n)
+    f(x, y) = sin(x + 10sin(i)) + cos(y)
+
+    # create a plot with 3 subplots and a custom layout
+    l = @layout [a{0.7w} b; c{0.2h}]
+    p = plot(x, y, f, st = [:surface, :contourf], layout = l)
+
+    # induce a slight oscillating camera angle sweep, in degrees (azimuth, altitude)
+    plot!(p[1], camera = (10 * (1 + cos(i)), 40))
+
+    # add a tracking line
+    fixed_x = zeros(40)
+    z = map(f, fixed_x, y)
+    plot!(p[1], fixed_x, y, z, line = (:black, 5, 0.2))
+    vline!(p[2], [0], line = (:black, 5))
+
+    # add to and show the tracked values over time
+    global zs = vcat(zs, z')
+    plot!(p[3], zs, alpha = 0.2, palette = cgrad(:blues).colors)
+end
+```
+
+```{julia}
+#using Pkg
+#Pkg.add("DataFrames")
+using DataFrames
+```
+
+```{julia}
+using CSV
+using DataFrames
+fl = "/Users/brady/git/thesis/figures/data/smfret/all-traces.tsv"
+df = DataFrame(CSV.File(fl; header = 1, delim = "\t"))
+```
+
+```{julia}
+frames = df[:, "frame"]
+don = df[:, "don"]
+acc = df[:, "acc"]
+
+
+
+anim = Animation()
+
+for rna in 0:13
+    df_sub = df[df[:, :rna] .== rna, :]
+    for mol in range(1, 20)
+        df_sub_sub = df_sub[df_sub[:, :mol] .== mol, :]
+        frames = df_sub_sub[:, "frame"]
+        don = df_sub_sub[:, "don"]
+        acc = df_sub_sub[:, "acc"]
+        frame(anim, plot(frames, [don, acc], title = rna))
+    end
+end 
+
+gif(anim, fps = 20)
+        
+
+```
+
+```{julia}
+data = df[df.rna .== 1, :]
+histogram(data.fret, xlims = [0, 1])
+
+anim = Animation()
+for time in range(1, 60 / 0.2)
+    fret = data[data.frame .<= time, :fret]
+    time_s = round(time * 0.2)
+    plt = histogram(fret, 
+        ylims = [0, 1], 
+        title = "Time: $time_s s",
+        bins = 0:0.05:1, 
+        orientation = :H
+        )
+    frame(anim, plt)
+end
+
+gif(anim, fps = 10)
+```
+
+```{julia}
+using Gadfly
+data = data[data.mol .== 1 .& data.rna .== 1, :]
+df2 = stack(data)
+
+df2 = df2[in.(df2.variable, Ref(["don", "acc"])), :]
+
+p = Gadfly.plot(x = df2.value, colour = df2.variable, Geom.histogram(bincount = 20))
+p
+
+```
+
+```{julia}
+gridstack([p p; p p])
+```

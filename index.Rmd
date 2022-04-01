@@ -1,5 +1,0 @@
----
-title: "R for Biochemists"
-site: distill::distill_website
-listing: posts
----

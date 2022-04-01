@@ -1,0 +1,15 @@
+---
+title: "Reproducible Experimental Ansysis in R"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+page-layout: full
+title-block-banner: true
+---
+
+# Some Content Will Go Here
+
+And some even more content below it hopefully in the form of blog posts.
+

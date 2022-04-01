@@ -1,0 +1,156 @@
+---
+title: "Calculating Protein Concentration"
+subtitle: "How do I make a standard curve in R?"
+tags: [data vis, ggplot2, R, lm, standard curve, tutorial]
+date: today
+author: Brady Johnston
+editor: visual
+toc: true
+toc-location: right
+image: std_curve.png
+bibliography: references.bib
+code-fold: show
+code-link: true
+code-line-numbers: true  
+---
+
+A common experiment in any kind of lab is the creation of a standard curve to measure the concentration or amount of some unknown sample. Whether they be proteins, small molecules or anything in between, it's a standard lab procedure.
+
+```{r}
+# Protein Concentrations
+prot <- c(0.000, 0.016, 0.031, 0.063, 0.125, 0.250, 0.500, 1.000, 
+          0.000, 0.016, 0.031, 0.063, 0.125, 0.250, 0.500, 1.000) 
+
+# Absorbance from my protein assay
+abs <- c(0.329, 0.352, 0.349, 0.379, 0.417, 0.491, 0.668, 0.956, 
+         0.327, 0.341, 0.355, 0.383, 0.417, 0.446, 0.655, 0.905)
+
+data <- data.frame(
+  prot = prot, 
+  abs = abs
+)
+
+unknowns <- c(0.554, 0.568, 0.705)
+
+head(data)
+```
+
+# The Easy Way
+
+Using the package `{standard}`, we can fit a stanard curve and use it to predict what the concentrations are for our unkown proteins.
+
+## Fitting a Standard Curve
+
+```{r}
+#remotes::install_github("rforbiochemists/standard")
+library(standard)
+
+our_curve <- std_curve_fit(
+  data = data, 
+  conc = prot, 
+  resp = abs
+  )
+plot(our_curve)
+```
+
+The $R^{2}$ is good and we can confidently use this standard curve to predict what our unknown protein concentrations are.
+
+## Calculating our Unknowns
+
+For this we can use the `std_curve_predict()` function, which takes a model output from `std_curve_fit()` and a vector of unknowns and returns the predicted values.
+
+```{r}
+std_curve_calc(
+  std_curve = our_curve, 
+  unknowns = unknowns
+  ) %>% 
+  knitr::kable()
+```
+
+We can similarly just use `plot()` to quickly generate an informative plot with our standard curve and predicted values all plotted.
+
+```{r}
+std_curve_calc(
+  std_curve = our_curve, 
+  unknowns = unknowns
+  ) %>% 
+  plot()
+```
+
+## What is `{standard}`?
+
+Standard is an effort to make the use of R for calculating and applying standard curves in molecular biology as painless as possible.
+
+Under the hood it's just fitting linear models, pulling out relevant statistics and using them to predict values. All of this may seem easy if you are exerienced in R - but the intention of this package is to create a beginner-friendly and *reproducible* API for doing common molecular biology tasks inside of R.
+
+# Fitting the Model
+
+```{r}
+mod <- lm(prot ~ abs, data = data)
+summary(mod)
+```
+
+What about just the coefficients we are interested in?
+
+```{r}
+coefficients(mod)
+```
+
+Which we can get in a bit nice format with the `{broom}` package.
+
+```{r}
+broom::tidy(mod)
+```
+
+The $R^{2}$ can be extracted from the model using `summary()`.
+
+```{r}
+r_squared <- summary(mod)$r.squared
+print(r_squared)
+```
+
+With some unknowns, we can predict what the values will be. We must make sure that the column in this unkown data frame has the appropriate name, `abs` in this case which is the same as what we used in our original model.
+
+We can use the base function `predict()` to get the predictions, or use the `broom::augment()` to get an already nicely formatted response.
+
+```{r}
+unk <- data.frame(
+  abs = c(0.554, 0.568, 0.705)
+)
+
+predict(mod, unk)
+unk <- broom::augment(mod, newdata = unk)
+unk
+```
+
+To plot the results:
+
+```{r}
+library(ggplot2)
+library(magrittr)
+broom::augment(mod) %>% 
+  ggplot(aes(prot, abs)) + 
+  geom_smooth(method = "lm", colour = "gray20", linetype = "dotted") + 
+  geom_point(aes(y = abs), colour = "tomato", size = 4) + 
+  geom_point(
+    data = unk, 
+    aes(x = .fitted, y = abs), 
+    colour = "black", 
+    alpha = 1,
+    size = 6, 
+    shape = 4
+  ) + 
+  theme_classic() + 
+  theme(aspect.ratio = 0.5) + 
+  labs(
+    x = "[Protein] mg/mL", 
+    y = "Absorbance (AU)"
+  ) + 
+  annotate(
+    geom = "text", 
+    x = 0.1, 
+    y = 0.9, 
+    label = paste("Rsq =", round(r_squared, 2))
+  )
+
+```
