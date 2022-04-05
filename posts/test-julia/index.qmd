@@ -9,20 +9,25 @@ toc: true
 code-fold: show
 code-link: true
 code-line-numbers: true  
-  
 ---
 
 # Below will be some `Julia` code.
+
+```{julia}
+using Pkg
+Pkg.add.(["DataFrames", "Gadfly", "Plots", "CSV", "Cairo"])
+```
 
 ```{julia}
 using Plots
 Plots.plot(1:10, randn(10))
 ```
 
-Now that's ssome julia code!
+Now that's some Julia code!
+Testing.
+Some more text!
 
-```{julia, code-fold="show"}
-
+```{julia}
 for i in 1:10
     println(i)
 end
@@ -69,13 +74,16 @@ using DataFrames
 using CSV
 using DataFrames
 fl = "/Users/brady/git/thesis/figures/data/smfret/all-traces.tsv"
+if Sys.iswindows() 
+    fl = "C:/Users/BradyJohnston/Documents/GitHub/thesis/figures/data/smfret/all-traces.tsv"
+end 
 df = DataFrame(CSV.File(fl; header = 1, delim = "\t"))
 ```
 
 ```{julia}
-frames = df[:, "frame"]
-don = df[:, "don"]
-acc = df[:, "acc"]
+frames = df[:, :frame]
+don    = df[:, :don]
+acc    = df[:, :acc]
 
 
 
@@ -124,11 +132,24 @@ df2 = stack(data)
 
 df2 = df2[in.(df2.variable, Ref(["don", "acc"])), :]
 
-p = Gadfly.plot(x = df2.value, colour = df2.variable, Geom.histogram(bincount = 20))
+p = Gadfly.plot(
+    y = df2.value, 
+    colour = df2.variable, 
+    Geom.histogram(
+        bincount = 20, 
+        orientation = :horizontal
+        ))
 p
-
 ```
 
 ```{julia}
-gridstack([p p; p p])
+df3 = df[df.rna .== 1 .&& df.fret .<= 1 .&& df.fret .>= -0, :]
+Gadfly.plot( 
+    y = df3.fret, 
+    Geom.histogram(
+        bincount = 20, 
+        orientation = :horizontal
+    ), 
+    Coord.cartesian(ymin = 0, ymax = 1)
+)
 ```

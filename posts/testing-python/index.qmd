@@ -1,0 +1,22 @@
+---
+title: "Testing a Python Document in RStudio"
+subtitle: "Python? No thanks!"
+tags: [data vis, julia, standard curve, tutorial]
+date: today
+author: Brady Johnston
+editor: visual
+toc: true
+code-fold: show
+code-link: true
+code-line-numbers: true  
+---
+
+# This is a title!
+
+And below will be some python code.
+
+```{python}
+print(
+    "Hello world!"
+)
+```

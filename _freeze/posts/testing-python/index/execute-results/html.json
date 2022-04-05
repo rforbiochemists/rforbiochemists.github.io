@@ -1,0 +1,11 @@
+{
+  "hash": "834ee2a9f3c7d02397ac7b9038a05572",
+  "result": {
+    "markdown": "---\ntitle: \"Testing a Python Document in RStudio\"\nsubtitle: \"Python? No thanks!\"\ntags: [data vis, julia, standard curve, tutorial]\ndate: today\nauthor: Brady Johnston\neditor: visual\ntoc: true\ncode-fold: show\ncode-link: true\ncode-line-numbers: true  \n---\n\n# This is a title!\n\nAnd below will be some python code.\n\n::: {.cell execution_count=1}\n``` {.python .cell-code}\nprint(\n    \"Hello world!\"\n)\n```\n\n::: {.cell-output-stdout}\n```\nHello world!\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
