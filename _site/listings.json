@@ -4,8 +4,8 @@
     "items": [
       "/posts/post-with-code/index.html",
       "/posts/welcome/index.html",
-      "/posts/standard-curves/index.html",
       "/posts/test-julia/index.html",
+      "/posts/standard-curves/index.html",
       "/posts/testing-python/index.html"
     ]
   }
