@@ -14,7 +14,8 @@ code-link: true
 code-line-numbers: true  
 ---
 
-A common experiment in any kind of lab is the creation of a standard curve to measure the concentration or amount of some unknown sample. Whether they be proteins, small molecules or anything in between, it's a standard lab procedure.
+A common experiment in any kind of lab is the creation of a standard curve to measure the concentration or amount of some unknown sample.
+Whether they be proteins, small molecules or anything in between, it's a standard lab procedure.
 
 ```{r}
 # Protein Concentrations
@@ -81,7 +82,8 @@ std_curve_calc(
 
 Standard is an effort to make the use of R for calculating and applying standard curves in molecular biology as painless as possible.
 
-Under the hood it's just fitting linear models, pulling out relevant statistics and using them to predict values. All of this may seem easy if you are exerienced in R - but the intention of this package is to create a beginner-friendly and *reproducible* API for doing common molecular biology tasks inside of R.
+Under the hood it's just fitting linear models, pulling out relevant statistics and using them to predict values.
+All of this may seem easy if you are exerienced in R - but the intention of this package is to create a beginner-friendly and *reproducible* API for doing common molecular biology tasks inside of R.
 
 # Fitting the Model
 
@@ -109,7 +111,8 @@ r_squared <- summary(mod)$r.squared
 print(r_squared)
 ```
 
-With some unknowns, we can predict what the values will be. We must make sure that the column in this unkown data frame has the appropriate name, `abs` in this case which is the same as what we used in our original model.
+With some unknowns, we can predict what the values will be.
+We must make sure that the column in this unkown data frame has the appropriate name, `abs` in this case which is the same as what we used in our original model.
 
 We can use the base function `predict()` to get the predictions, or use the `broom::augment()` to get an already nicely formatted response.
 

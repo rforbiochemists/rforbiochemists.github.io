@@ -1,0 +1,75 @@
+{
+  "name": "",
+  "isOrdered": true,
+  "folders": {
+    "posts": {
+      "name": "posts",
+      "isOrdered": true,
+      "folders": {
+        "post-with-code": {
+          "name": "post-with-code",
+          "isOrdered": true,
+          "folders": {},
+          "files": {}
+        },
+        "standard-curves": {
+          "name": "standard-curves",
+          "isOrdered": true,
+          "folders": {},
+          "files": {
+            "index": 0
+          }
+        },
+        "test-julia": {
+          "name": "test-julia",
+          "isOrdered": true,
+          "folders": {},
+          "files": {
+            "index": 0
+          }
+        },
+        "testing-python": {
+          "name": "testing-python",
+          "isOrdered": true,
+          "folders": {},
+          "files": {}
+        },
+        "welcome": {
+          "name": "welcome",
+          "isOrdered": true,
+          "folders": {},
+          "files": {}
+        }
+      },
+      "files": {}
+    },
+    "share": {
+      "name": "share",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "_freeze": {
+      "name": "_freeze",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "_posts": {
+      "name": "_posts",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "_site": {
+      "name": "_site",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    }
+  },
+  "files": {
+    "index": 0,
+    "about": 1
+  }
+}

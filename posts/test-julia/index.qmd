@@ -153,3 +153,19 @@ Gadfly.plot(
     Coord.cartesian(ymin = 0, ymax = 1)
 )
 ```
+
+This is some text.
+```{julia}
+anim = Animation()
+for i in 0:13
+    df4 = df[df.rna .== i .&& df.fret .<= 1 .&& df.fret .>= 0, :]
+    p = histogram(
+        df4.fret, 
+        orientation = :horizontal, 
+        bins = 20, 
+        )
+    title!(string(i))
+    frame(anim, p)
+end
+gif(anim, fps = 3)
+```

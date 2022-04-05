@@ -4,6 +4,7 @@
     "items": [
       "/posts/post-with-code/index.html",
       "/posts/welcome/index.html",
+      "/posts/dose-response-curves/index.html",
       "/posts/standard-curves/index.html",
       "/posts/test-julia/index.html",
       "/posts/testing-python/index.html"

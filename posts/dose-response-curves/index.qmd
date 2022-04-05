@@ -1,0 +1,79 @@
+---
+title: "Calculating a $V_{max}$ and $K_{m}$ for an Enzyme"
+subtitle: "How tightly does my protein bind?"
+tags: [data vis, ggplot2, R, lm, standard curve, tutorial]
+date: today
+author: Brady Johnston
+editor: visual
+toc: true
+image: enzymeplot.png
+toc-location: right
+code-fold: show
+code-link: true
+code-line-numbers: true  
+---
+
+Playing around with modelling dose-response curves in R, to calculate a $K_{d}$ for an interaction between a protein and it's potential binding target.
+And now some more text.
+
+```{r}
+library(biochemr)
+mod <- Puromycin %>% 
+  b_dose_resp(conc, rate, state, .model = drc::MM.2())
+
+purrr::map(mod$drmod, broom::glance)
+```
+
+
+```{r}
+#| label: first-plot
+mod %>% 
+  b_plot(colour = state, facet = FALSE) + 
+  ggplot2::coord_cartesian(ylim = c(0, NA))
+```
+
+
+```{r}
+mod %>% 
+  b_coefs() %>% 
+  knitr::kable()
+mod %>% 
+  b_plot_coefs(state, term = "e")
+
+```
+
+Is there actually a difference between the two sates? We can see their fits 
+inside of @fig-first-plot but we are unsure if it will actually be significant.
+We can compare the two models:
+
+```{r}
+comp <- purrr::reduce(mod$drmod, anova) %>% 
+  tibble::as_tibble() %>% 
+  dplyr::mutate(model = as.character(mod$state))
+comp
+```
+
+By the looks of things, we probably couldn't say that there was actually a real difference between the two states, with a p-value of only `r round(comp[2, "p value"], 3)` .
+
+## What about with a different data set?
+
+```{r}
+#| message: false
+mod <- DNase %>% 
+  tibble::as_tibble() %>% 
+  b_binding(conc, density, Run)
+
+ 
+b_plot(mod,colour = Run)
+
+mod %>% 
+  dplyr::mutate(
+    comp = purrr::map(drmod, anova, object = mod$drmod[[1]]), 
+    comp_stat = purrr::map(comp, tibble::as_tibble)
+  ) %>% 
+  tidyr::unnest(comp_stat) %>% 
+  tidyr::drop_na(Df) %>% 
+  dplyr::select(Run, ModelDf, RSS, Df) %>% 
+  knitr::kable()
+```
+
