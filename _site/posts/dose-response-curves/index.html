@@ -133,7 +133,7 @@
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
 <ul>
-<li><a href="#what-about-with-a-different-data-set" class="nav-link active" data-scroll-target="#what-about-with-a-different-data-set">What about with a different data set?</a></li>
+<li><a href="#what-about-with-a-different-data-set" class="nav-link active" data-scroll-target="#what-about-with-a-different-data-set"> <span class="header-section-number">1</span> What about with a different data set?</a></li>
 </ul></nav>
     </div>
 <!-- main -->
@@ -143,14 +143,14 @@
 
 <div class="quarto-title-banner color-navbar page-columns page-full"><div class="quarto-title column-body"><h1 class="title display-7">Calculating a <span class="math inline">\(V_{max}\)</span> and <span class="math inline">\(K_{m}\)</span> for an Enzyme</h1><p class="subtitle lead">How tightly does my protein bind?</p></div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Author</div><div class="quarto-title-meta-contents"><div class="quarto-title-authors"><div><div>
 <p>Brady Johnston</p>
-</div></div></div></div></div><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">April 5, 2022</p></div></div></div></header><p>Playing around with modelling dose-response curves in R, to calculate a <span class="math inline">\(K_{d}\)</span> for an interaction between a protein and it’s potential binding target. And now some more text.</p>
+</div></div></div></div></div><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">April 7, 2022</p></div></div></div></header><p>Playing around with modelling dose-response curves in R, to calculate a <span class="math inline">\(K_{d}\)</span> for an interaction between a protein and it’s potential binding target. From this we can compare the rates of two enzymes, and see if our mutation had any effect. Ther results of which can be seen below in <a href="#tbl-plot-coefficients">Table&nbsp;1</a>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="cell">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(biochemr)</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(biochemr)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>mod <span class="ot">&lt;-</span> Puromycin <span class="sc">%&gt;%</span> </span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">b_dose_resp</span>(conc, rate, state, <span class="at">.model =</span> drc<span class="sc">::</span><span class="fu">MM.2</span>())</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">bio_enzyme_rate</span>(conc, rate, <span class="at">group =</span> state)</span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>purrr<span class="sc">::</span><span class="fu">map</span>(mod<span class="sc">$</span>drmod, broom<span class="sc">::</span>glance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<span id="cb1-5"><a href="#cb1-5"></a>purrr<span class="sc">::</span><span class="fu">map</span>(mod<span class="sc">$</span>model, broom<span class="sc">::</span>glance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[[1]]
 # A tibble: 1 x 4
     AIC   BIC logLik    df.residual
@@ -164,33 +164,29 @@
 1  85.2  86.4 -39.5805           9</code></pre>
 </div>
 </div>
-<div class="cell">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>mod <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">b_plot</span>(<span class="at">colour =</span> state, <span class="at">facet =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<div class="cell page-columns page-full">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>mod <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">bio_plot</span>(<span class="at">colour =</span> state, <span class="at">facet =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
 <span id="cb3-3"><a href="#cb3-3"></a>  ggplot2<span class="sc">::</span><span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<p><img src="index_files/figure-html/first-plot-1.png" class="img-fluid" width="672"></p>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-first-plot" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full"><p><img src="index_files/figure-html/fig-first-plot-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption margin-caption">Figure 1: The enzyme responses plotted using <code>bio_plot()</code> function.</figcaption><p></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="cell">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>mod <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">b_coefs</span>() <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>mod <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">bio_coefs</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb4-3"><a href="#cb4-3"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
+<div id="tbl-plot-coefficients" class="anchored">
 <table class="table table-sm table-striped">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 7%">
-<col style="width: 17%">
-<col style="width: 17%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-</colgroup>
+<caption>Table 1: The resulting coefficients from the model.</caption>
 <thead><tr class="header">
 <th style="text-align: left;">state</th>
 <th style="text-align: left;">term</th>
-<th style="text-align: left;">curve</th>
 <th style="text-align: right;">estimate</th>
 <th style="text-align: right;">std.error</th>
 <th style="text-align: right;">statistic</th>
@@ -199,8 +195,7 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">treated</td>
-<td style="text-align: left;">d</td>
-<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: left;">Vmax</td>
 <td style="text-align: right;">212.6838544</td>
 <td style="text-align: right;">7.1606488</td>
 <td style="text-align: right;">29.701757</td>
@@ -208,8 +203,7 @@
 </tr>
 <tr class="even">
 <td style="text-align: left;">treated</td>
-<td style="text-align: left;">e</td>
-<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: left;">Km</td>
 <td style="text-align: right;">0.0641215</td>
 <td style="text-align: right;">0.0087112</td>
 <td style="text-align: right;">7.360806</td>
@@ -217,8 +211,7 @@
 </tr>
 <tr class="odd">
 <td style="text-align: left;">untreated</td>
-<td style="text-align: left;">d</td>
-<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: left;">Vmax</td>
 <td style="text-align: right;">160.2802158</td>
 <td style="text-align: right;">6.8060674</td>
 <td style="text-align: right;">23.549607</td>
@@ -226,8 +219,7 @@
 </tr>
 <tr class="even">
 <td style="text-align: left;">untreated</td>
-<td style="text-align: left;">e</td>
-<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: left;">Km</td>
 <td style="text-align: right;">0.0477084</td>
 <td style="text-align: right;">0.0084203</td>
 <td style="text-align: right;">5.665846</td>
@@ -236,26 +228,22 @@
 </tbody>
 </table>
 </div>
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>mod <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">b_plot_coefs</span>(state, <span class="at">term =</span> <span class="st">"e"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Is there actually a difference between the two sates? We can see their fits inside of <strong>?@fig-first-plot</strong> but we are unsure if it will actually be significant. We can compare the two models:</p>
+<p>Is there actually a difference between the two sates? We can see their fits inside of <a href="#fig-first-plot">Figure&nbsp;1</a> but we are unsure if it will actually be significant. We can compare the two models:</p>
 <div class="cell">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>comp <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">reduce</span>(mod<span class="sc">$</span>drmod, anova) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb6-3"><a href="#cb6-3"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">as.character</span>(mod<span class="sc">$</span>state))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>comp <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">reduce</span>(mod<span class="sc">$</span>model, anova) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">as.character</span>(mod<span class="sc">$</span>state))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>
 1st model
  fct:      .model
 2nd model
  fct:      .model</code></pre>
 </div>
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>comp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>comp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code># A tibble: 2 x 6
   ModelDf   RSS    Df `F value` `p value` model    
     &lt;int&gt; &lt;dbl&gt; &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    
@@ -264,207 +252,296 @@
 </div>
 </div>
 <p>By the looks of things, we probably couldn’t say that there was actually a real difference between the two states, with a p-value of only 0.094 .</p>
-<section id="what-about-with-a-different-data-set" class="level2"><h2 class="anchored" data-anchor-id="what-about-with-a-different-data-set">What about with a different data set?</h2>
+<section id="what-about-with-a-different-data-set" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="what-about-with-a-different-data-set">
+<span class="header-section-number">1</span> What about with a different data set?</h2>
 <div class="cell">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>mod <span class="ot">&lt;-</span> DNase <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">b_binding</span>(conc, density, Run)</span>
-<span id="cb10-4"><a href="#cb10-4"></a></span>
-<span id="cb10-5"><a href="#cb10-5"></a> </span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="fu">b_plot</span>(mod,<span class="at">colour =</span> Run)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>mod <span class="ot">&lt;-</span> DNase <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">bio_binding</span>(conc, density, Run)</span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a> </span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="fu">bio_plot</span>(mod,<span class="at">colour =</span> Run) <span class="sc">+</span> </span>
+<span id="cb9-7"><a href="#cb9-7"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>mod <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    <span class="at">comp =</span> purrr<span class="sc">::</span><span class="fu">map</span>(drmod, anova, <span class="at">object =</span> mod<span class="sc">$</span>drmod[[<span class="dv">1</span>]]), </span>
-<span id="cb11-4"><a href="#cb11-4"></a>    <span class="at">comp_stat =</span> purrr<span class="sc">::</span><span class="fu">map</span>(comp, tibble<span class="sc">::</span>as_tibble)</span>
-<span id="cb11-5"><a href="#cb11-5"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-6"><a href="#cb11-6"></a>  tidyr<span class="sc">::</span><span class="fu">unnest</span>(comp_stat) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-7"><a href="#cb11-7"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(Df) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-8"><a href="#cb11-8"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Run, ModelDf, RSS, Df) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-9"><a href="#cb11-9"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
-<pre><code>
-1st model
- fct:      .model
-2nd model
- fct:      .model</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>Warning in pf(testStat, dfDiff[2], df2): NaNs produced</code></pre>
-</div>
-<div class="cell-output-stdout">
-<pre><code>
-1st model
- fct:      .model
-2nd model
- fct:      .model</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>Warning in pf(testStat, dfDiff[2], df2): NaNs produced</code></pre>
-</div>
-<div class="cell-output-stdout">
-<pre><code>
-1st model
- fct:      .model
-2nd model
- fct:      .model</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>Warning in pf(testStat, dfDiff[2], df2): NaNs produced</code></pre>
-</div>
-<div class="cell-output-stdout">
-<pre><code>
-1st model
- fct:      .model
-2nd model
- fct:      .model</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>Warning in pf(testStat, dfDiff[2], df2): NaNs produced</code></pre>
-</div>
-<div class="cell-output-stdout">
-<pre><code>
-1st model
- fct:      .model
-2nd model
- fct:      .model</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>Warning in pf(testStat, dfDiff[2], df2): NaNs produced</code></pre>
-</div>
-<div class="cell-output-stdout">
-<pre><code>
-1st model
- fct:      .model
-2nd model
- fct:      .model</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>Warning in pf(testStat, dfDiff[2], df2): NaNs produced</code></pre>
-</div>
-<div class="cell-output-stdout">
-<pre><code>
-1st model
- fct:      .model
-2nd model
- fct:      .model</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>Warning in pf(testStat, dfDiff[2], df2): NaNs produced</code></pre>
-</div>
-<div class="cell-output-stdout">
-<pre><code>
-1st model
- fct:      .model
-2nd model
- fct:      .model</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>Warning in pf(testStat, dfDiff[2], df2): NaNs produced</code></pre>
-</div>
-<div class="cell-output-stdout">
-<pre><code>
-1st model
- fct:      .model
-2nd model
- fct:      .model</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>Warning in pf(testStat, dfDiff[2], df2): NaNs produced</code></pre>
-</div>
-<div class="cell-output-stdout">
-<pre><code>
-1st model
- fct:      .model
-2nd model
- fct:      .model</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>Warning in pf(testStat, dfDiff[2], df2): NaNs produced</code></pre>
-</div>
-<div class="cell-output-stdout">
-<pre><code>
-1st model
- fct:      .model
-2nd model
- fct:      .model</code></pre>
-</div>
-<div class="cell-output-display">
+<details><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>mod <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">bio_coefs</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
 <table class="table table-sm table-striped">
 <thead><tr class="header">
 <th style="text-align: left;">Run</th>
-<th style="text-align: right;">ModelDf</th>
-<th style="text-align: right;">RSS</th>
-<th style="text-align: right;">Df</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.0052085</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">2.2705194</td>
+<td style="text-align: right;">0.0364655</td>
+<td style="text-align: right;">62.2649303</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">0.0073850</td>
+<td style="text-align: right;">0.0100745</td>
+<td style="text-align: right;">0.7330375</td>
+<td style="text-align: right;">0.4765466</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">kd</td>
+<td style="text-align: right;">4.1084971</td>
+<td style="text-align: right;">0.1851084</td>
+<td style="text-align: right;">22.1950839</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.0030162</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">2.6128488</td>
+<td style="text-align: right;">0.0292937</td>
+<td style="text-align: right;">89.1950485</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">0.0128038</td>
+<td style="text-align: right;">0.0074880</td>
+<td style="text-align: right;">1.7098975</td>
+<td style="text-align: right;">0.1110294</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">kd</td>
+<td style="text-align: right;">4.4508310</td>
+<td style="text-align: right;">0.1352866</td>
+<td style="text-align: right;">32.8992656</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.0209994</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">2.6775958</td>
+<td style="text-align: right;">0.0840040</td>
+<td style="text-align: right;">31.8746404</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">0.0578853</td>
+<td style="text-align: right;">0.0195722</td>
+<td style="text-align: right;">2.9575268</td>
+<td style="text-align: right;">0.0111100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">kd</td>
+<td style="text-align: right;">4.8176998</td>
+<td style="text-align: right;">0.4042475</td>
+<td style="text-align: right;">11.9176993</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.0026407</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">2.3309391</td>
+<td style="text-align: right;">0.0262891</td>
+<td style="text-align: right;">88.6655629</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">-0.0013376</td>
+<td style="text-align: right;">0.0071064</td>
+<td style="text-align: right;">-0.1882271</td>
+<td style="text-align: right;">0.8536051</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">kd</td>
+<td style="text-align: right;">4.2111290</td>
+<td style="text-align: right;">0.1311680</td>
+<td style="text-align: right;">32.1048592</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">5</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.0021638</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">2.2807621</td>
+<td style="text-align: right;">0.0218934</td>
+<td style="text-align: right;">104.1757485</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">0.0112117</td>
+<td style="text-align: right;">0.0065355</td>
+<td style="text-align: right;">1.7154931</td>
+<td style="text-align: right;">0.1099752</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">kd</td>
+<td style="text-align: right;">3.8414222</td>
+<td style="text-align: right;">0.1062143</td>
+<td style="text-align: right;">36.1667237</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">6</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.0030893</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">2.3621820</td>
+<td style="text-align: right;">0.0283166</td>
+<td style="text-align: right;">83.4204860</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">0.0763727</td>
+<td style="text-align: right;">0.0076901</td>
+<td style="text-align: right;">9.9313315</td>
+<td style="text-align: right;">0.0000002</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">kd</td>
+<td style="text-align: right;">4.1940893</td>
+<td style="text-align: right;">0.1437941</td>
+<td style="text-align: right;">29.1673187</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">7</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.0020699</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">2.2894235</td>
+<td style="text-align: right;">0.0229600</td>
+<td style="text-align: right;">99.7137792</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">0.0783058</td>
+<td style="text-align: right;">0.0063524</td>
+<td style="text-align: right;">12.3270339</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">kd</td>
+<td style="text-align: right;">4.1031800</td>
+<td style="text-align: right;">0.1192003</td>
+<td style="text-align: right;">34.4225514</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">8</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.0065607</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">2.2981260</td>
+<td style="text-align: right;">0.0396233</td>
+<td style="text-align: right;">57.9993070</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">0.0290558</td>
+<td style="text-align: right;">0.0112390</td>
+<td style="text-align: right;">2.5852649</td>
+<td style="text-align: right;">0.0226296</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">kd</td>
+<td style="text-align: right;">4.0422784</td>
+<td style="text-align: right;">0.1979815</td>
+<td style="text-align: right;">20.4174545</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">9</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.0059459</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">2.2054284</td>
+<td style="text-align: right;">0.0349925</td>
+<td style="text-align: right;">63.0258299</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">0.0230895</td>
+<td style="text-align: right;">0.0109794</td>
+<td style="text-align: right;">2.1029957</td>
+<td style="text-align: right;">0.0555099</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">kd</td>
+<td style="text-align: right;">3.6510849</td>
+<td style="text-align: right;">0.1715205</td>
+<td style="text-align: right;">21.2865860</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">10</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.0059394</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">2.1503869</td>
+<td style="text-align: right;">0.0339103</td>
+<td style="text-align: right;">63.4139688</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">0.0489323</td>
+<td style="text-align: right;">0.0111212</td>
+<td style="text-align: right;">4.3999208</td>
+<td style="text-align: right;">0.0007178</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">kd</td>
+<td style="text-align: right;">3.4850652</td>
+<td style="text-align: right;">0.1681737</td>
+<td style="text-align: right;">20.7230059</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">11</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.0055573</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">2.2333839</td>
+<td style="text-align: right;">0.0360498</td>
+<td style="text-align: right;">61.9527653</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">0.0438119</td>
+<td style="text-align: right;">0.0105591</td>
+<td style="text-align: right;">4.1492156</td>
+<td style="text-align: right;">0.0011429</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">kd</td>
+<td style="text-align: right;">3.8771385</td>
+<td style="text-align: right;">0.1830020</td>
+<td style="text-align: right;">21.1863136</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 </tbody>
 </table>
@@ -473,7 +550,10 @@
 
 
 
-</section></main><!-- /main --><script type="application/javascript">
+</section><div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<ol>
+<li id="fn1" role="doc-endnote"><p>This isn’t actually the best way to go about it. There are far too many details, which are more useful if you are doing more advance modelling, but we are just after an estimate of the <span class="math inline">\(K_{m}\)</span> and the <span class="math inline">\(V_{max}\)</span> from our data.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></div></main><!-- /main --><script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
   const anchorJS = new window.AnchorJS();
