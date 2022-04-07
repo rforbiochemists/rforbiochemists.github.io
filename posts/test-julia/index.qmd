@@ -23,9 +23,7 @@ using Plots
 Plots.plot(1:10, randn(10))
 ```
 
-Now that's some Julia code!
-Testing.
-Some more text!
+Now that's some Julia code! Testing. Some more text! And now some more!
 
 ```{julia}
 for i in 1:10
@@ -154,18 +152,3 @@ Gadfly.plot(
 )
 ```
 
-This is some text.
-```{julia}
-anim = Animation()
-for i in 0:13
-    df4 = df[df.rna .== i .&& df.fret .<= 1 .&& df.fret .>= 0, :]
-    p = histogram(
-        df4.fret, 
-        orientation = :horizontal, 
-        bins = 20, 
-        )
-    title!(string(i))
-    frame(anim, p)
-end
-gif(anim, fps = 3)
-```
